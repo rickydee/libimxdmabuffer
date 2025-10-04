@@ -13,14 +13,9 @@
 #include <string.h>
 #include <stdint.h>
 
-/* Dummy macros for test code compatibility */
-#ifndef IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_FD_FLAGS
-#define IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_FD_FLAGS 0
-#endif
-
-#ifndef IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_HEAP_FLAGS
-#define IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_HEAP_FLAGS 0
-#endif
+/* Dummy global constants for test-alloc.c compatibility */
+const int IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_FD_FLAGS = 0;
+const int IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_HEAP_FLAGS = 0;
 
 struct imx_dma_heap_buffer {
     int dmabuf_fd;
