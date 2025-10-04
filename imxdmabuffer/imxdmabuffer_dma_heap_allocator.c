@@ -13,6 +13,15 @@
 #include <string.h>
 #include <stdint.h>
 
+/* Dummy macros for test code compatibility */
+#ifndef IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_FD_FLAGS
+#define IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_FD_FLAGS 0
+#endif
+
+#ifndef IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_HEAP_FLAGS
+#define IMX_DMA_BUFFER_DMA_HEAP_ALLOCATOR_DEFAULT_HEAP_FLAGS 0
+#endif
+
 struct imx_dma_heap_buffer {
     int dmabuf_fd;
     size_t size;
@@ -114,3 +123,17 @@ uint64_t imx_dma_buffer_dma_heap_get_physical_address_from_dmabuf_fd(int fd)
     return 0;      // Not supported
 }
 #endif
+
+/* Minimal constructor for test code */
+struct imx_dma_heap_buffer *imx_dma_buffer_dma_heap_allocator_new(void)
+{
+    struct imx_dma_heap_buffer *buf = calloc(1, sizeof(*buf));
+    if (!buf)
+        return NULL;
+
+    buf->dmabuf_fd = -1;
+    buf->size = 0;
+    buf->mapped = NULL;
+
+    return buf;
+}
