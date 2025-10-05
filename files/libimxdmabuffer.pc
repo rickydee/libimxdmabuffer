@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libimxdmabuffer
+Description: i.MX DMA buffer management library
+Version: 1.1.3
+Libs: -L${libdir} -limxdmabuffer
+Cflags: -I${includedir}
